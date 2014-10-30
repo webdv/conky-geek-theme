@@ -1,0 +1,84 @@
+#####################################################
+################### CONKY THEME #####################
+###################	BY	#####################
+###################    Webdv	#####################
+#####################################################
+
+gap_x 30
+gap_y 60
+
+alignment top_right
+
+update_interval 1
+
+use_xft yes
+xftfont Ubuntu-L:size=8
+
+own_window yes
+own_window_type normal
+own_window_transparent no
+own_window_colour 000000
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_argb_visual yes
+own_window_argb_value 128
+
+double_buffer yes
+draw_shades no
+draw_graph_borders no
+
+uppercase no
+default_bar_size 0 4
+default_graph_size 0 24
+border_inner_margin 16
+
+default_color ffffff
+#max_size 200 140
+
+
+TEXT
+${color 44CCDE}System${color}
+${alignc}'${nodename}'
+${alignc}linux ${kernel}
+
+${color 44CCDE}Processor${color}
+${alignc}${freq}MHz
+${alignc}${processes} threads
+
+\# CPU-0${alignr}${cpu cpu0}%
+\# CPU-1${alignr}${cpu cpu1}%
+${color 34FF34}${cpugraph}${color}
+${top name 1}${alignr}${top cpu 1}
+${top name 2}${alignr}${top cpu 2}
+${top name 3}${alignr}${top cpu 3}
+${top name 4}${alignr}${top cpu 4}
+${hr 1}
+TOTAL${alignr}${cpu}%
+
+${color 44CCDE}Memory${color}
+
+${alignc}${memperc}%
+${alignc}${mem}/${memmax}
+${color 34FF34}${memgraph}${color}
+RAM USAGE${alignr} %
+${top_mem name 1}${alignr}${top_mem mem 1}
+${top_mem name 2}${alignr}${top_mem mem 2}
+${top_mem name 3}${alignr}${top_mem mem 3}
+${top_mem name 4}${alignr}${top_mem mem 4}
+${hr 1}
+TOTAL${alignr}${memperc}%
+
+
+${color 44CCDE}Storage${color}
+${alignc}${fs_used_perc /}% / ${fs_size}
+${fs_bar /}
+
+[ RX : TX ] ${alignr}[${color FFAF0F}${diskio_read} : ${color FF8866}${diskio_write}${color}]
+${diskiograph 34FF34 FF000F}
+${color 44CCDE}Network${color}
+
+Down ${downspeed wlan0}${alignr}Up ${upspeed wlan0}
+${color 34FF34}${downspeedgraph wlan0 32, 96 t l}${color FF000F}${alignr}${upspeedgraph wlan0 32, 96 t l}${color}
+Total ${totaldown wlan0}${alignr}Total ${totalup wlan0}
+
+${color 44CCDE}Total Connections${color} ${alignr}${tcp_portmon 1 65535 count}
+
